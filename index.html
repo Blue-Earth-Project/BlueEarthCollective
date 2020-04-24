@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-<link rel="stylesheet" href="/style.css">
-<script src="/countries.js"></script>
+<link rel="stylesheet" href="/earth/style.css">
+<!-- <script src="/earth/countries.js"></script> -->
 
-<script src="/miniature.earth.js"></script>
+<script src="/earth/miniature.earth.js"></script>
 
 <script>
 
@@ -25,16 +25,16 @@ window.addEventListener( "earthjsload", function() {
 		light: 'none',
 		
 		transparent : true,
-		mapSeaColor : 'RGBA(255,255,255,0.76)',
-		mapLandColor : '#383838',
-		mapBorderColor : '#5D5D5D',
-		mapBorderWidth : 0.25,
-		mapStyles : ' #CU, #DO, #HT, #JM, #PR { fill: red; stroke: red; } ',
+		mapSeaColor : 'RGBA(0,0,0,0.76)',
+		mapLandColor : '#0E22D3', 
+		mapBorderColor : '#000000',
+		mapBorderWidth : 0.25,	
+		// mapStyles : ' #CU, #DO, #HT, #JM, #PR { fill: red; stroke: red; } ',
 		mapHitTest : true,
 
 		autoRotate: true,
-		autoRotateSpeed: 0.7,
-		autoRotateDelay: 4000,
+		autoRotateSpeed: 0.8,
+		autoRotateDelay: 3000,
 		
 	} );
 	
@@ -46,69 +46,69 @@ window.addEventListener( "earthjsload", function() {
 		
 		// Caribbean
 		
-		news[0] = myearth.addOverlay( {
-			location: {lat: 27.5, lng: -71},
-			offset: 0.3,
-			depthScale : 0.25,
-			className : 'warning',
-			transform: 'translate(-50%, -50%)',
-			occlude : "custom",
-			newsId : 0
-		} );
+		// news[0] = myearth.addOverlay( {
+		// 	location: {lat: 27.5, lng: -71},
+		// 	offset: 0.3,
+		// 	depthScale : 0.25,
+		// 	className : 'warning',
+		// 	transform: 'translate(-50%, -50%)',
+		// 	occlude : "custom",
+		// 	newsId : 0
+		// } );
 		
-		news[0].element.addEventListener( 'click', highlightBreakingNews );
+		// news[0].element.addEventListener( 'click', highlightBreakingNews );
 		
 		
-		// Mongolia
+		// // Mongolia
 		
-		news[1] = myearth.addOverlay( {
-			location: {lat: 49, lng: 106},
-			offset: 0.3,
-			depthScale : 0.25,
-			className : 'warning',
-			transform: 'translate(-50%, -50%)',
-			occlude : "custom",
-			newsId : 1
-		} );
+		// news[1] = myearth.addOverlay( {
+		// 	location: {lat: 49, lng: 106},
+		// 	offset: 0.3,
+		// 	depthScale : 0.25,
+		// 	className : 'warning',
+		// 	transform: 'translate(-50%, -50%)',
+		// 	occlude : "custom",
+		// 	newsId : 1
+		// } );
 		
-		news[1].element.addEventListener( 'click', highlightBreakingNews );
+		// news[1].element.addEventListener( 'click', highlightBreakingNews );
 	
-		myearth.addLine({
-			polyLine : true,
-			locations: [
-				{lat: 50, lng: 100},
-				{lat: 43, lng: 100},
-				{lat: 43, lng: 96},
-				{lat: 46, lng: 90},
-				{lat: 50, lng: 90},
-				{lat: 50, lng: 100}
-			],
-			color : "red",
-			width: 0.75
-		});
+		// myearth.addLine({
+		// 	polyLine : true,
+		// 	locations: [
+		// 		{lat: 50, lng: 100},
+		// 		{lat: 43, lng: 100},
+		// 		{lat: 43, lng: 96},
+		// 		{lat: 46, lng: 90},
+		// 		{lat: 50, lng: 90},
+		// 		{lat: 50, lng: 100}
+		// 	],
+		// 	color : "red",
+		// 	width: 0.75
+		// });
 
 		
 		// Sumatra
 		
-		news[2] = myearth.addOverlay( {
-			location: {lat: 4, lng: 91.5},
-			offset: 0.3,
-			depthScale : 0.25,
-			className : 'warning',
-			transform: 'translate(-50%, -50%)',
-			occlude : "custom",
-			newsId : 2
-		} );
+		// news[2] = myearth.addOverlay( {
+		// 	location: {lat: 4, lng: 91.5},
+		// 	offset: 0.3,
+		// 	depthScale : 0.25,
+		// 	className : 'warning',
+		// 	transform: 'translate(-50%, -50%)',
+		// 	occlude : "custom",
+		// 	newsId : 2
+		// } );
 		
-		news[2].element.addEventListener( 'click', highlightBreakingNews );
+		// news[2].element.addEventListener( 'click', highlightBreakingNews );
 		
-		myearth.addMarker( {
-			location: {lat: 3.52, lng: 97.3},
-			mesh : "Pin3",
-			color : "red",
-			scale: 0.4,
-			hotspot: false,
-		} );
+		// myearth.addMarker( {
+		// 	location: {lat: 3.52, lng: 97.3},
+		// 	mesh : "Pin3",
+		// 	color : "red",
+		// 	scale: 0.4,
+		// 	hotspot: false,
+		// } );
 		
 		
 	} );
@@ -146,6 +146,7 @@ window.addEventListener( "earthjsload", function() {
 				.then( (data) => {
 					for(let i=0;i<=248;i++){
 						if(data.Countries[i].CountryCode == selectedCountry){
+							document.getElementById('country-name').innerHTML = data.Countries[i].Country
 							document.getElementById('total-recovered').innerHTML = `Total recoverd case: ${data.Countries[i].TotalRecovered}`;
 							document.getElementById('total-active').innerHTML = `Total active case: ${data.Countries[i].TotalConfirmed-(data.Countries[i].TotalDeaths+data.Countries[i].TotalRecovered)}`;
 							break;
@@ -163,7 +164,7 @@ window.addEventListener( "earthjsload", function() {
 			
 				localNewsMarker = this.addMarker( {
 					mesh : "Marker",
-					color: '#257cff',
+					color: '#F51717',
 					location : event.location,
 					scale: 0.01
 				} );
@@ -266,6 +267,11 @@ function gotoBreakingNews( newsId ) {
 	</div>		
 	
 <style>
+#wrapper{
+	background-color: #0d130e;
+	width: 100%;
+	color: white;
+}
 
 #back-link {
 	position: fixed;
