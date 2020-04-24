@@ -140,15 +140,21 @@ window.addEventListener( "earthjsload", function() {
 			if ( selectedCountry != event.id ) {
                 selectedCountry = event.id;
                 console.log(selectedCountry);
-                // document.getElementById('country-name').innerHTML = countries[selectedCountry];
 				// console.log('Clicked');
-				fetch('https://api.covid19india.org/data.json')
-				.then( (res) => {
-					console.log(res.json());
+				fetch('https://api.covid19api.com/summary')
+				.then( (res) => res.json())
+				.then( (data) => {
+					for(let i=0;i<=248;i++){
+						if(data.Countries[i].CountryCode == selectedCountry){
+							document.getElementById('total-recovered').innerHTML = `Total recoverd case: ${data.Countries[i].TotalRecovered}`;
+							document.getElementById('total-active').innerHTML = `Total active case: ${data.Countries[i].TotalConfirmed-(data.Countries[i].TotalDeaths+data.Countries[i].TotalRecovered)}`;
+							break;
+						}
+					}
 				});
 
-				document.getElementById('local-news').classList.add( 'has-news' );
-				document.getElementById('local-news').classList.toggle( 'toggle-news' );
+				// document.getElementById('local-news').classList.add( 'has-news' );
+				// document.getElementById('local-news').classList.toggle( 'toggle-news' );
 			}
 			
 			// create news marker on first click
@@ -235,6 +241,8 @@ function gotoBreakingNews( newsId ) {
 			<h2 id="country-name" style="color:#257cff">News from around the&nbsp;world</span></h2>
 			
 			<p id="please-click">Click a country to show local news.</p>
+			<p id="total-recovered"></p>
+			<p id="total-active"></p>
 			
 			<div class="news">
 				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
