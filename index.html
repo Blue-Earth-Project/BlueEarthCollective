@@ -263,8 +263,19 @@ function gotoBreakingNews( newsId ) {
 			
 			
 		</div>
-		
 	</div>		
+	<!-- facebook-button -->
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  
+  
 	
 <style>
 #wrapper{
@@ -321,13 +332,31 @@ function gotoBreakingNews( newsId ) {
 	font-size: 10px;
 }
 
+.share-buttons{
+	position: absolute;
+	bottom: 10%;
+	right: 10%;
+	display: flex;
+}
+.fb-share-button{
+	padding-right: 3px;
+}
+
 </style>
 
 
-<a id="back-link" href="../"><img src="../images/miniature-earth.svg" alt="Miniature Earth"></a>
-<div id="legal-footer-wrap">
-	<div id="legal-footer"><a href="../privacy.htm">Privacy Policy</a> <a href="../legal.htm">Legal Notice</a></div>
+<a id="back-link" href="../"><img src="/profile.png" alt="Miniature Earth"></a>
+<div class="share-buttons">
+
+<div class="fb-share-button" 
+    data-href="https://github.com/" 
+    data-layout="button_count">
+  </div>
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
+<!-- <div id="legal-footer-wrap">
+	<div id="legal-footer"><a href="../privacy.htm">Privacy Policy</a> <a href="../legal.htm">Legal Notice</a></div>
+</div> -->
 
 </body>
 </html>
