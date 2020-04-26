@@ -214,7 +214,7 @@ function gotoBreakingNews( newsId ) {
 	<div id="wrapper">
 		
 		<div id="breaking-news">
-			<h2 style="color:red;">Breaking News</h2>
+			<h2 style="color:red;">Join the Blue Earth Collective and share positive news</h2>
 			
 			<div id="breaking-news-0" class="news">
 				<h3 onclick="gotoBreakingNews( 0 );">Four states in India free from Corona Virus</h3>
@@ -339,7 +339,16 @@ function gotoBreakingNews( newsId ) {
 	display: flex;
 }
 .fb-share-button{
-	padding-right: 3px;
+	padding-right: 0px;
+	height: 20px;
+	transform: scale(1.4);
+}
+.twitter-share-button{
+	transform: scale(1.4);
+	padding-left: 30px;
+}
+#breaking-news{
+	padding-top: 120px;
 }
 
 </style>
@@ -349,7 +358,7 @@ function gotoBreakingNews( newsId ) {
 <div class="share-buttons">
 
 <div class="fb-share-button" 
-    data-href="https://github.com/" 
+    data-href="https://bluearth.netlify.app/"
     data-layout="button_count">
   </div>
   <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
