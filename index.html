@@ -147,7 +147,7 @@ window.addEventListener( "earthjsload", function() {
 					for(let i=0;i<=248;i++){
 						if(data.Countries[i].CountryCode == selectedCountry){
 							document.getElementById('country-name').innerHTML = data.Countries[i].Country
-							document.getElementById('total-recovered').innerHTML = `Total recoverd case: ${data.Countries[i].TotalRecovered}`;
+							document.getElementById('total-recovered').innerHTML = `Total recoeverd case: ${data.Countries[i].TotalRecovered}`;
 							document.getElementById('total-active').innerHTML = `Total active case: ${data.Countries[i].TotalConfirmed-(data.Countries[i].TotalDeaths+data.Countries[i].TotalRecovered)}`;
 							break;
 						}
