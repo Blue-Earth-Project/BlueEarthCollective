@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Blue Earth Collective</title>
+<title>Bluearth Collective | Kickstart the local businesses around the world after Covid19 pandemic</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -147,8 +147,8 @@ window.addEventListener( "earthjsload", function() {
 					for(let i=0;i<=248;i++){
 						if(data.Countries[i].CountryCode == selectedCountry){
 							document.getElementById('country-name').innerHTML = data.Countries[i].Country
-							document.getElementById('total-recovered').innerHTML = `Total recoeverd case: ${data.Countries[i].TotalRecovered}`;
-							document.getElementById('total-active').innerHTML = `Total active case: ${data.Countries[i].TotalConfirmed-(data.Countries[i].TotalDeaths+data.Countries[i].TotalRecovered)}`;
+							document.getElementById('total-recovered').innerHTML = `Total recovered cases: ${data.Countries[i].TotalRecovered}`;
+							document.getElementById('total-active').innerHTML = `Total active cases: ${data.Countries[i].TotalConfirmed-(data.Countries[i].TotalDeaths+data.Countries[i].TotalRecovered)}`;
 							break;
 						}
 					}
@@ -214,7 +214,7 @@ function gotoBreakingNews( newsId ) {
 	<div id="wrapper">
 		
 		<div id="breaking-news">
-			<h2 style="color:red;">Join the Blue Earth Collective and share positive news</h2>
+			<h2 style="color:red;">Join the Blue Earth Collective and share positive news from around the world</h2>
 			
 			<div id="breaking-news-0" class="news">
 				<h3 onclick="gotoBreakingNews( 0 );"><a href="https://www.livemint.com/news/india/after-goa-three-more-states-become-coronavirus-free-11587873116163.html" style="text-decoration: none;color: white;">Four states in India free from Corona Virus</a></h3>
@@ -241,7 +241,7 @@ function gotoBreakingNews( newsId ) {
 		
 			<h2 id="country-name" style="color:#257cff">News from around the&nbsp;world</span></h2>
 			
-			<p id="please-click">Click a country to show local news.</p>
+			<p id="please-click">Click a country to see the current status of Covid19 cases.</p>
 			<p id="total-recovered"></p>
 			<p id="total-active"></p>
 			
@@ -354,11 +354,11 @@ function gotoBreakingNews( newsId ) {
 </style>
 
 
-<a id="back-link" href="../"><img src="/profile.png" alt="Miniature Earth"></a>
+<a id="back-link" href="../"><img src="/profile.png" alt="Bluearth"></a>
 <div class="share-buttons">
 
 <div class="fb-share-button" 
-    data-href="https://bluearth.netlify.app/"
+    data-href="https://www.bluearth.life"
     data-layout="button_count">
   </div>
   <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
